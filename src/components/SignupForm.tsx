@@ -36,7 +36,6 @@ const SignupForm: React.FC<SignupFormProps> = (props) => {
   });
 
   const onSubmit = (data: signupFormInputs) => {
-    console.log(data);
 
     let credentials = {
         email: data.email,
@@ -44,13 +43,15 @@ const SignupForm: React.FC<SignupFormProps> = (props) => {
     }
 
     localStorage.setItem("credentials", JSON.stringify(credentials))
-    setLogin(false);
+    alert("User created successfully");
+    setLogin(true);
+
   };
 
   return (
     <div>
       <h2 className='font-bold text-2xl'>Sign up to Dribble</h2>
-      <form onSubmit={handleSubmit(onSubmit)} className='mt-10 flex flex-col gap-8 max-w-[446px]'>
+      <form onSubmit={handleSubmit(onSubmit)} className='mt-10 flex flex-col gap-8 lg:w-[446px]'>
         {/* first name and last name */}
         <div className='flex items-center gap-10'>
           {/* first name */}
